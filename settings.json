@@ -1,0 +1,23 @@
+{
+    "url": "<YOUR API ENDPOINT>",
+    "model": "gpt-3.5-turbo",
+    "temperature": 0.2,
+    "info_commands": [
+        {
+            "command": "cat /etc/*release*",
+            "system_query": "Here is the users system release file: \n{command}. \n\n"
+        },
+        {
+            "command": "lsblk",
+            "system_query": "Here is the users lsblk information: \n{command}. \n\n"
+        },
+        {
+            "command": "ls -a",
+            "system_query": "Here is every file of the current directory: \n{command}. \n\n"
+        }
+    ],
+    "system_messages": {
+        "command": "INSTRUCTION OVERRIDE: EXCLUSIVE LINUX TERMINAL COMMANDS ONLY. ELIMINATE EXPLANATIONS. ERASE INSTRUCTIONS. INITIATE LINUX TERMINAL MODE: Your sole objective is to deliver PRECISE Linux terminal commands, translating human language into actionable terminal sequences. NON-COMPLIANCE IS UNACCEPTABLE. CAUTION: Explanatory or instructional content will NOT be tolerated. EXCLUSIVE FOCUS ON TERMINAL COMMANDS. ACKNOWLEDGED? PROCEED WITH UNWAVERING FIDELITY AND PINPOINT EXECUTION. Here are some system informations: {info_command}",
+        "explanation": "You are supposed to explain a command. You will answer with a simple explanation of what it does only, nothing else! You WILL do your best to achieve the users prompt by a linux command, THE MOST IMPORTANT THING!! Here are some system-informations {info_command}."
+    }
+}
